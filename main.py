@@ -1,12 +1,15 @@
-# main.py
 from fastapi import FastAPI, UploadFile, File
 import shutil
 import os
 from verification import verify_aadhaar_card
 
-app = FastAPI()
+app = FastAPI(
+    title="Aadhaar Verification API",
+    description="API to verify Aadhaar QR, logo, and text extraction",
+    version="1.0.0"
+)
 
-LOGO_PATH = "template.jpg"  # Aadhaar logo template (make sure to include in repo)
+LOGO_PATH = "template.jpg"  # Aadhaar logo template
 
 @app.get("/")
 def home():
@@ -20,6 +23,5 @@ async def verify(file: UploadFile = File(...)):
 
     result = verify_aadhaar_card(temp_file, LOGO_PATH)
 
-    # cleanup
-    os.remove(temp_file)
+    os.remove(temp_file)  # cleanup
     return result
