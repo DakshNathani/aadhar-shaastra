@@ -2,7 +2,7 @@
 
 This API verifies Aadhaar cards by scanning **QR codes**, detecting the **Aadhaar logo**, and extracting Aadhaar numbers using **OCR**.
 
-🚀 Base URL: [https://aadhar-shaastra.onrender.com](https://aadhar-shaastra.onrender.com)
+🚀 Base URL: [https://aadhar-shaastra.onrender.com](https://aadhar-shaastra-1.onrender.com)
 
 ---
 
@@ -31,7 +31,7 @@ file: Aadhaar card image (JPG, PNG, etc.)
 ✅ Using cURL
 bash
 Copy code
-curl -X POST "https://aadhar-shaastra.onrender.com/verify/" \
+curl -X POST "https://aadhar-shaastra-1.onrender.com/verify/" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@test.png"
@@ -40,7 +40,7 @@ python
 Copy code
 import requests
 
-url = "https://aadhar-shaastra.onrender.com/verify/"
+url = "https://aadhar-shaastra-1.onrender.com/verify/"
 files = {"file": open("test.png", "rb")}
 response = requests.post(url, files=files)
 
