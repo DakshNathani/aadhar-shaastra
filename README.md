@@ -11,7 +11,7 @@ This API verifies Aadhaar cards by scanning **QR codes**, detecting the **Aadhaa
 ### 1. Health Check
 Check if the API is running.
 
-```http
+http
 GET /
 Response
 
@@ -29,14 +29,15 @@ file: Aadhaar card image (JPG, PNG, etc.)
 
 📤 How to Send Requests
 ✅ Using cURL
-bash
+```bash
 Copy code
 curl -X POST "https://aadhar-shaastra-1.onrender.com/verify/" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
   -F "file=@test.png"
+```
 ✅ Using Python
-python
+```python
 Copy code
 import requests
 
@@ -44,4 +45,4 @@ url = "https://aadhar-shaastra-1.onrender.com/verify/"
 files = {"file": open("test.png", "rb")}
 response = requests.post(url, files=files)
 
-print(response.json())
+print(response.json())```
